@@ -1,0 +1,24 @@
+/* Bordes y sombras de tarjetas */
+.card {
+    border-radius: 10px;
+}
+
+/* Input correcto */
+.correcto {
+    border: 2px solid green !important;
+}
+
+/* Input incorrecto */
+.incorrecto {
+    border: 2px solid red !important;
+}
+
+/* Botón de ocultar/mostrar */
+.btn-toggle {
+    margin-bottom: 10px;
+}
+
+/* Lista de estudiantes */
+ul {
+    padding-left: 20px;
+}
