@@ -1,11 +1,16 @@
-// ===============================================================
 // OBJETOS Y ARRAY PRINCIPAL
-// ===============================================================
 
-// Limpiar localStorage para pruebas
 //localStorage.clear();
 
-// Cursos disponibles
+/*
+function mostrarResultado(texto){
+    document.getElementById("resultado").innerHTML = texto;
+}
+
+mostrarResultado("Texto a mostrar");
+*/
+
+// Cursos disponibles, similar al proyecto de concesionario
 const cursos = [
     { nombre: "Matemáticas", codigo: "MAT101", maxEstudiantes: 5, estudiantes: [] },
     { nombre: "Historia", codigo: "HIS201", maxEstudiantes: 4, estudiantes: [] },
@@ -19,9 +24,7 @@ const regex = {
     edad: /^[1-9][0-9]?$|^100$/  // entre 1 y 100
 };
 
-// ===============================================================
 // SELECTORES DEL DOM
-// ===============================================================
 const selectCurso = document.querySelector("#selectCurso");
 const formEstudiante = document.querySelector("#formEstudiante");
 const nombreInput = document.querySelector("#nombre");
@@ -32,9 +35,7 @@ const errorEmail = document.querySelector("#errorEmail");
 const errorEdad = document.querySelector("#errorEdad");
 const listaCursosDiv = document.querySelector("#listaCursos");
 
-// ===============================================================
-// INICIALIZACIÓN: Rellenar select con cursos
-// ===============================================================
+// INICIALIZACIÓN: Rellenar select con cursos, desplegable
 function inicializarSelect() {
     cursos.forEach((curso, index) => {
         const option = document.createElement("option");
@@ -44,9 +45,7 @@ function inicializarSelect() {
     });
 }
 
-// ===============================================================
 // FUNCIONES DE VALIDACIÓN
-// ===============================================================
 function validarCampo(input, regex, errorElemento, mensaje) {
     if(regex.test(input.value.trim())) {
         input.classList.add("correcto");
@@ -61,9 +60,7 @@ function validarCampo(input, regex, errorElemento, mensaje) {
     }
 }
 
-// ===============================================================
 // FUNCION PARA MOSTRAR CURSOS Y ESTUDIANTES
-// ===============================================================
 function mostrarCursos() {
     listaCursosDiv.innerHTML = ""; // limpiar
 
@@ -101,9 +98,7 @@ function mostrarCursos() {
     });
 }
 
-// ===============================================================
 // CARGAR DATOS DE LOCALSTORAGE
-// ===============================================================
 function cargarDatos() {
     const datos = localStorage.getItem("cursos");
     if(datos) {
@@ -114,9 +109,7 @@ function cargarDatos() {
     }
 }
 
-// ===============================================================
 // EVENTO DE REGISTRO DE ESTUDIANTE
-// ===============================================================
 formEstudiante.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -158,9 +151,7 @@ formEstudiante.addEventListener("submit", (e) => {
     mostrarCursos();
 });
 
-// ===============================================================
 // INICIALIZACIÓN
-// ===============================================================
 inicializarSelect();
 cargarDatos();
 mostrarCursos();
